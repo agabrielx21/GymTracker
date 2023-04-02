@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="Finished Interface and Service for the class PT, &#10;Added a new menu to gather all the commands into it,&#10;Added exit option into a menu">
-      <change afterPath="$PROJECT_DIR$/src/services/ExerciseInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ExerciseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/MealInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/MealService.java" afterDir="false" />
+    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="Finished Interface and Service for the class Exercise &amp; Meal">
+      <change afterPath="$PROJECT_DIR$/src/services/MembershipInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/MembershipService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Meal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/EatingPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/EatingPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Membership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Membership.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/WorkoutPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/WorkoutPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ExerciseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680385055594</updated>
       <workItem from="1680385055623" duration="9946000" />
-      <workItem from="1680446048761" duration="18675000" />
+      <workItem from="1680446048761" duration="23766000" />
     </task>
     <task id="LOCAL-00001" summary="Initialization">
       <created>1680385136299</created>
@@ -97,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680467469902</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished Interface and Service for the class Exercise &amp; Meal">
+      <created>1680471552786</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680471552786</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +115,7 @@
     <MESSAGE value="Finished classes ( entities package )" />
     <MESSAGE value="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java" />
     <MESSAGE value="Finished Interface and Service for the class PT, &#10;Added a new menu to gather all the commands into it,&#10;Added exit option into a menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Interface and Service for the class PT, &#10;Added a new menu to gather all the commands into it,&#10;Added exit option into a menu" />
+    <MESSAGE value="Finished Interface and Service for the class Exercise &amp; Meal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Interface and Service for the class Exercise &amp; Meal" />
   </component>
 </project>

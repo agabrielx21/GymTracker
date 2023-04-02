@@ -41,6 +41,7 @@ public class ExerciseService implements ExerciseInterface{
 
     @Override
     public List<Exercise> getExercises() {
+
         return this.exercises;
     }
 }

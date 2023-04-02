@@ -14,6 +14,10 @@ public class EatingPlan extends Plan{
         this.meals = meals;
     }
 
+    public EatingPlan() {
+
+    }
+
     public Vector<Meal> getMeals() {
         return meals;
     }

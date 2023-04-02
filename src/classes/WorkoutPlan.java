@@ -14,6 +14,10 @@ public class WorkoutPlan extends Plan{
         this.exercises = exercises;
     }
 
+    public WorkoutPlan() {
+
+    }
+
     public Vector<Exercise> getExercises() {
         return exercises;
     }
