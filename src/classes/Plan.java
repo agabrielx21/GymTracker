@@ -1,6 +1,6 @@
 package classes;
 
-public class Plan {
+public abstract class Plan {
     private int price;
     private int duration;
 

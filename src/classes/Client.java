@@ -17,13 +17,29 @@ public class Client extends Person{
         this.fidelity = fidelity;
     }
 
+    public String getCnp() {
+        return cnp;
+    }
+
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
+    }
+
+    public Boolean getFidelity() {
+        return fidelity;
+    }
+
+    public void setFidelity(Boolean fidelity) {
+        this.fidelity = fidelity;
+    }
+
     @Override
     public String toString() {
         String sexString = "Unknown";
         if (getSex() != null) {
             sexString = getSex() ? "M" : "F";
         }
-        String fidelityString = "Unknown";
+        String fidelityString = "   Unknown fidelity";
         if(fidelity != null) {
             fidelityString = fidelity ? "   Client fidel" : "   Nu e client fidel";
         }

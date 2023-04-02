@@ -2,7 +2,7 @@ package classes;
 
 import java.util.Date;
 
-public class STAFF extends Person {
+public abstract class STAFF extends Person {
     private Boolean isQualified;
     private Date dataAngajarii;
 

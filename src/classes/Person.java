@@ -1,6 +1,6 @@
 package classes;
 
-public class Person {
+public abstract class Person {
     private int id;
     private static int nextId = 1;
     private String nume;
