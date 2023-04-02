@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="Finished classes ( entities package )">
-      <change afterPath="$PROJECT_DIR$/src/MainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ClientInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
+    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java">
+      <change afterPath="$PROJECT_DIR$/src/services/PersonalTrainerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/PersonalTrainerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Plan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Plan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/STAFF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/STAFF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/PersonalTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/PersonalTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -59,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680385055594</updated>
       <workItem from="1680385055623" duration="9946000" />
-      <workItem from="1680446048761" duration="12503000" />
+      <workItem from="1680446048761" duration="14896000" />
     </task>
     <task id="LOCAL-00001" summary="Initialization">
       <created>1680385136299</created>
@@ -75,7 +74,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680396508066</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java">
+      <created>1680464964765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680464964765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java">
+      <created>1680464975639</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680464975639</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +97,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialization" />
     <MESSAGE value="Finished classes ( entities package )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished classes ( entities package )" />
+    <MESSAGE value="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java" />
   </component>
 </project>

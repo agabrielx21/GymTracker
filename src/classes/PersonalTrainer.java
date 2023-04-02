@@ -22,6 +22,22 @@ public class PersonalTrainer extends STAFF {
         this.experienta = experienta;
     }
 
+    public String getSpecializare() {
+        return specializare;
+    }
+
+    public void setSpecializare(String specializare) {
+        this.specializare = specializare;
+    }
+
+    public int getExperienta() {
+        return experienta;
+    }
+
+    public void setExperienta(int experienta) {
+        this.experienta = experienta;
+    }
+
     public PersonalTrainer(String nume, String prenume, int age, Boolean sex, Boolean isQualified, Date dataAngajarii, String specializare, int experienta) {
         super(nume, prenume, age, sex, isQualified, dataAngajarii);
         this.specializare = specializare;
@@ -45,6 +61,7 @@ public class PersonalTrainer extends STAFF {
                 "   Varsta: " + getAge() + '\n' +
                 "   Sex: " + sexString + '\n' +
                 "   Specializare : " + specializare + '\n' +
-                "   Experienta : " + experienta + " an/ani" + '\n' + isQualifiedString;
+                "   Experienta : " + experienta + " an/ani" + '\n' +
+                "   Data angajarii: " + getDataAngajarii() + '\n' + isQualifiedString;
     }
 }

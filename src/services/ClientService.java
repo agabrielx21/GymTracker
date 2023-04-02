@@ -63,7 +63,7 @@ public class ClientService implements ClientInterface {
 
         client.setCnp(cnp);
         this.clients.add(client);
-//        return client;
+
     }
 
     @Override
