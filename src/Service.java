@@ -1,8 +1,13 @@
 import classes.Client;
+import classes.Exercise;
+import classes.Meal;
 import classes.PersonalTrainer;
 import services.ClientService;
+import services.ExerciseService;
+import services.MealService;
 import services.PersonalTrainerService;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -10,6 +15,8 @@ public class Service {
     private static Service init;
     private ClientService clientServ = ClientService.getInit();
     private PersonalTrainerService ptServ = PersonalTrainerService.getInit();
+    private ExerciseService exServ = ExerciseService.getInit();
+    private MealService mealServ = MealService.getInit();
     private Scanner scanner = new Scanner(System.in);
     private Service(){
 
@@ -22,8 +29,11 @@ public class Service {
     }
 
     public void showGeneralCommands(){
+        System.out.println("--->0.Inchidere aplicatie");
         System.out.println("--->1.Meniu manipulare clienti");
         System.out.println("--->2.Meniu manipulare personal traineri");
+        System.out.println("--->3.Meniu manipulare exercitii ");
+        System.out.println("--->4.Meniu manipulare meniuri ");
     }
 
     public void doGeneralCommands(){
@@ -33,19 +43,25 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 1 && option <= 2)
+                    if(option >= 0 && option <= 4)
                         break;
-                    else System.out.println("Introduceti un numar de la 1 la 2 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 1 la 2 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
                 }
 
             }
+            if(option == 0)
+                System.exit(0);
             if(option == 1)
                 doClientCommands();
             else if(option == 2)
                 doPTCommands();
+            else if(option == 3)
+                doExCommands();
+            else if(option == 4)
+                doMealCommands();
             else {
                 System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
             }
@@ -215,6 +231,102 @@ public class Service {
                     }
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la identificarea clientului: ");
+                }
+            }
+            else {
+                System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
+            }
+        }
+    }
+
+    public void showExCommands(){
+        System.out.println("--->0.Exit");
+        System.out.println("--->1.Afisare exercitii");
+        System.out.println("--->2.Adaugare exercitiu");
+    }
+    public void doExCommands(){
+        while(true){
+            showExCommands();
+            int option = -1;
+            while(true){
+                try{
+                    option = scanner.nextInt();
+                    if(option >= 0 && option <= 2)
+                        break;
+                    else System.out.println("Introduceti un numar de la 0 la 2 pentru a utiliza o instructiune valida!");
+                }
+                catch (Exception exception){
+                    System.out.println("Introduceti un numar de la 0 la 2 pentru a utiliza o instructiune valida!");
+                }
+
+            }
+            if(option == 0){
+                doGeneralCommands();
+            }
+            else if(option == 1){
+                if(exServ.getExercises().size() == 0)
+                    System.out.println("Nu exista exercitii inregistrate in sistem");
+                else{
+                    List<Exercise> exercises = exServ.getExercises();
+                    for(Exercise ex : exercises)
+                        System.out.println(ex.toString());
+                }
+            }
+
+            else if(option == 2){
+                try {
+                    exServ.addExercise();
+                }
+                catch (Exception e){
+                    System.out.println("A aparut o eroare la introducerea exercitiului in sistem.");
+                }
+            }
+            else {
+                System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
+            }
+        }
+    }
+
+    public void showMealCommands(){
+        System.out.println("--->0.Exit");
+        System.out.println("--->1.Afisare meniuri mancare");
+        System.out.println("--->2.Adaugare meniu mancare");
+    }
+    public void doMealCommands(){
+        while(true){
+            showMealCommands();
+            int option = -1;
+            while(true){
+                try{
+                    option = scanner.nextInt();
+                    if(option >= 0 && option <= 2)
+                        break;
+                    else System.out.println("Introduceti un numar de la 0 la 2 pentru a utiliza o instructiune valida!");
+                }
+                catch (Exception exception){
+                    System.out.println("Introduceti un numar de la 0 la 2 pentru a utiliza o instructiune valida!");
+                }
+
+            }
+            if(option == 0){
+                doGeneralCommands();
+            }
+            else if(option == 1){
+                if(mealServ.getMeals().size() == 0)
+                    System.out.println("Nu exista meniuri inregistrate in sistem");
+                else{
+                    List<Meal> meals = mealServ.getMeals();
+                    for(Meal meal : meals)
+                        System.out.println(meal.toString());
+                }
+            }
+
+            else if(option == 2){
+                try {
+                    mealServ.addMeal();
+                }
+                catch (Exception e){
+                    System.out.println("A aparut o eroare la introducerea meniului in sistem.");
                 }
             }
             else {

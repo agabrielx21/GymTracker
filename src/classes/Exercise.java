@@ -5,6 +5,9 @@ public class Exercise {
     private int numberOfSets;
     private String target;
 
+    public Exercise(){
+
+    }
     public Exercise(String name, int numberOfSets, String target) {
         this.name = name;
         this.numberOfSets = numberOfSets;

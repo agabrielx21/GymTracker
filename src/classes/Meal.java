@@ -6,6 +6,9 @@ public class Meal {
     private String garnish;
     private int kcal;
 
+    public Meal(){
+
+    }
     public Meal(String name, String meatType, String garnish, int kcal) {
         this.name = name;
         this.meatType = meatType;
