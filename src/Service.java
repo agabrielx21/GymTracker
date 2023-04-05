@@ -1,6 +1,7 @@
 import classes.*;
 import services.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -152,6 +153,8 @@ public class Service {
         System.out.println("--->3.Adauga client");
         System.out.println("--->4.Modificare client");
         System.out.println("--->5.Sterge client");
+        System.out.println("--->6.Adauga un abonament clientului");
+        System.out.println("--->7.Afiseaza abonamentele clientului");
     }
     public void doClientCommands(){
         while(true){
@@ -160,12 +163,12 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 0 && option <= 5)
+                    if(option >= 0 && option <= 7)
                         break;
-                    else System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 7 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 7 pentru a utiliza o instructiune valida!");
                 }
 
             }
@@ -227,6 +230,61 @@ public class Service {
                     } else {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }
+                } catch (Exception e) {
+                    System.out.println("A aparut o eroare la identificarea clientului: ");
+                }
+            }
+            else if(option == 6){
+                System.out.println("Introduceti ID-ul clientului : ");
+                int id = scanner.nextInt();
+                try {
+                    Client client = clientServ.getClientbyID(id);
+                    if (client != null) {
+                        List<Membership> membershipList = client.getMembershipList();
+                        try {
+                            memberServ.addMembership();
+                            List<Membership> memberships = memberServ.getMemberships();
+                            if (!memberships.isEmpty()) {
+                                Membership membershipToAdd = memberships.get(memberships.size() - 1);
+                                if (membershipList != null) {
+                                    membershipList.add(membershipToAdd);
+                                    client.setMembershipList(membershipList);
+                                } else {
+                                    List<Membership> newMembershipList = new ArrayList<>();
+                                    newMembershipList.add(membershipToAdd);
+                                    client.setMembershipList(newMembershipList);
+                                }
+
+                            } else {
+                                System.out.println("A aparut o eroare la introducerea membershipului in sistem.");
+                            }
+
+                        }
+                        catch (Exception e){
+                            System.out.println("A aparut o eroare la introducerea membershipului in sistem.");
+                            e.printStackTrace();
+
+                        }
+                    } else {
+                        System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+                    }
+                } catch (Exception e) {
+                    System.out.println("A aparut o eroare la identificarea clientului. ");
+                }
+
+            }
+            else if(option == 7){
+                System.out.println("Introduceti ID-ul clientului : ");
+                int id = scanner.nextInt();
+                try {
+                        List<Membership> membershipList = clientServ.getMembershipToList(id);
+                        if(membershipList != null){
+                            for(Membership membership : membershipList){
+                                System.out.println(membership.toString());
+
+                            }
+                        }
+                        else System.out.println("Acest client nu are niciun membership activ !");
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la identificarea clientului: ");
                 }

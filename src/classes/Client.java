@@ -1,8 +1,17 @@
 package classes;
-
+import java.util.List;
 public class Client extends Person{
     private String cnp;
     private Boolean fidelity;
+    private List<Membership> membershipList;
+
+    public List<Membership> getMembershipList() {
+        return membershipList;
+    }
+
+    public void setMembershipList(List<Membership> membershipList) {
+        this.membershipList = membershipList;
+    }
 
     public Client(){
 

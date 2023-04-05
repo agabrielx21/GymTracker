@@ -1,8 +1,10 @@
 package services;
 
 import classes.Client;
+import classes.Membership;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -116,4 +118,27 @@ public class ClientService implements ClientInterface {
         if (deleted == false)
             throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
     }
+
+    @Override
+    public List<Membership> getMembershipToList(int ID) throws Exception {
+        for (Client client : clients) {
+            if (client.getId() == ID)
+                return client.getMembershipList();
+        }
+        throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+    }
+
+//    @Override
+//    public void addMembershipToList(int ID, Membership membership) throws Exception {
+//        for (Client client : clients) {
+//            if (client.getId() == ID){
+//                List<Membership> m = client.getMembershipList();
+//                m.add(membership);
+//                client.setMembershipList(m);
+//            }
+//        }
+//        throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+//    }
+
+
 }

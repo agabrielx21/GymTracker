@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="Finished Interface and Service for the class Exercise &amp; Meal">
-      <change afterPath="$PROJECT_DIR$/src/services/MembershipInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/MembershipService.java" afterDir="false" />
+    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="update on new menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/EatingPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/EatingPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Membership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Membership.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/WorkoutPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/WorkoutPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ExerciseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +44,15 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="classes" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +62,10 @@
       <option name="presentableId" value="Default" />
       <updated>1680385055594</updated>
       <workItem from="1680385055623" duration="9946000" />
-      <workItem from="1680446048761" duration="23766000" />
+      <workItem from="1680446048761" duration="24165000" />
+      <workItem from="1680536780878" duration="1369000" />
+      <workItem from="1680540587372" duration="54000" />
+      <workItem from="1680721804612" duration="6592000" />
     </task>
     <task id="LOCAL-00001" summary="Initialization">
       <created>1680385136299</created>
@@ -104,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680471552786</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update on new menu">
+      <created>1680476721740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680476721740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +128,7 @@
     <MESSAGE value="Finished Interface and Service for the class Client, &#10;Added a Service to call the classes services from Main.java" />
     <MESSAGE value="Finished Interface and Service for the class PT, &#10;Added a new menu to gather all the commands into it,&#10;Added exit option into a menu" />
     <MESSAGE value="Finished Interface and Service for the class Exercise &amp; Meal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Interface and Service for the class Exercise &amp; Meal" />
+    <MESSAGE value="update on new menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="update on new menu" />
   </component>
 </project>
