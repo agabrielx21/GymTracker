@@ -8,3 +8,16 @@ CREATE TABLE Client (
                           fidelity VARCHAR2(255),
                           PRIMARY KEY (id)
 );
+
+CREATE TABLE PersonalTrainer (
+                          id INT NOT NULL,
+                          nume VARCHAR2(255),
+                          prenume VARCHAR2(255),
+                          age INT,
+                          sex VARCHAR2(255),
+                          calificare VARCHAR2(255),
+                          dataAngajarii DATE,
+                          specializare VARCHAR2(255),
+                          experienta INT,
+                          PRIMARY KEY (id)
+);

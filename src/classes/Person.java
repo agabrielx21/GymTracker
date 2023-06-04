@@ -9,8 +9,8 @@ public abstract class Person {
     private Boolean sex;
 
     public Person() {
-        this.id = nextId;
-        nextId++;
+        this.id = ++nextId;
+//        nextId++;
     }
 
     public Person(String nume, String prenume, int age, Boolean sex) {
@@ -22,6 +22,13 @@ public abstract class Person {
         this.sex = sex;
     }
 
+    public Person(int ID,String nume, String prenume, int age, Boolean sex){
+        this.id = ID;
+        this.nume = nume;
+        this.prenume = prenume;
+        this.age = age;
+        this.sex = sex;
+    }
     public String getNume() {
         return nume;
     }

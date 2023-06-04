@@ -26,6 +26,12 @@ public class Client extends Person{
         this.fidelity = fidelity;
     }
 
+    public Client (int ID, String nume, String prenume, int age, Boolean sex, String cnp, Boolean fidelity){
+        super(ID,nume,prenume,age,sex);
+        this.cnp = cnp;
+        this.fidelity = fidelity;
+    }
+
     public String getCnp() {
         return cnp;
     }
@@ -35,7 +41,7 @@ public class Client extends Person{
     }
 
     public Boolean getFidelity() {
-        return fidelity;
+        return fidelity != null ? fidelity : Boolean.FALSE;
     }
 
     public void setFidelity(Boolean fidelity) {
@@ -53,6 +59,7 @@ public class Client extends Person{
             fidelityString = fidelity ? "   Client fidel" : "   Nu e client fidel";
         }
         return "Client ----> " + '\n' +
+                "   ID: " + getId() + '\n' +
                 "   Nume: " + getNume() + '\n' +
                 "   Prenume: " + getPrenume() + '\n' +
                 "   Varsta: " + getAge() + '\n' +

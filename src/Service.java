@@ -1,11 +1,13 @@
 import audit.*;
 import classes.*;
+import repositories.person.PersonalTrainerRepository;
 import services.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+
 
 
 public class Service {
@@ -53,19 +55,30 @@ public class Service {
 
             }
             if(option == 0) {
+                audit.write("Inchidere aplicatie");
                 audit.close();
                 System.exit(0);
             }
-            if(option == 1)
+            if(option == 1) {
+                audit.write("---> Interogare meniu Clienti");
                 doClientCommands();
-            else if(option == 2)
+            }
+            else if(option == 2) {
+                audit.write("---> Interogare meniu Personal Traineri");
                 doPTCommands();
-            else if(option == 3)
+            }
+            else if(option == 3) {
+                audit.write("---> Interogare meniu Exercitii");
                 doExCommands();
-            else if(option == 4)
+            }
+            else if(option == 4) {
+                audit.write("---> Interogare meniu Meniuri");
                 doMealCommands();
-            else if(option == 5)
+            }
+            else if(option == 5) {
+                audit.write("---> Interogare meniu Abonamente");
                 doMembershipCommands();
+            }
             else {
                 System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
             }
@@ -77,7 +90,8 @@ public class Service {
         System.out.println("--->1.Afisare personal traineri");
         System.out.println("--->2.Cautare personal trainer dupa ID");
         System.out.println("--->3.Adauga personal trainer");
-        System.out.println("--->4.Sterge personal trainer");
+        System.out.println("--->4.Modificare personal trainer");
+        System.out.println("--->5.Sterge personal trainer");
     }
 
     public void doPTCommands(){
@@ -87,12 +101,12 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 0 && option <= 4)
+                    if(option >= 0 && option <= 5)
                         break;
-                    else System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
                 }
 
             }
@@ -106,6 +120,7 @@ public class Service {
                     Set<PersonalTrainer> personalTrainers = ptServ.getPT();
                     for(PersonalTrainer pt : personalTrainers)
                         System.out.println(pt.toString());
+                    audit.write("Afisare Personal Trainers");
                 }
             }
             else if(option == 2){
@@ -115,6 +130,7 @@ public class Service {
                     PersonalTrainer pt = ptServ.getPTbyID(id);
                     if (pt != null) {
                         System.out.println(pt.toString());
+                        audit.write("Cautare Personal Trainer dupa ID");
                     } else {
                         System.out.println("Ne pare rau, dar nu exista niciun personal trainer cu ID-ul furnizat !");
                     }
@@ -125,19 +141,40 @@ public class Service {
             else if(option == 3){
                 try {
                     ptServ.addPT();
+                    audit.write("Inserare Personal Trainer in baza de date");
                 }
                 catch (Exception e){
+                    e.printStackTrace();
                     System.out.println("A aparut o eroare la introducerea personal trainerului in sistem.");
                 }
             }
 
             else if(option == 4){
+                System.out.println("Introduceti ID-ul Personal Trainerului caruia doriti sa ii modificati profilul din sistem: ");
+                int id = scanner.nextInt();
+                try {
+                    PersonalTrainer pt = ptServ.getPTbyID(id);
+                    if (pt != null) {
+                        ptServ.updatePT(id);
+                        audit.write("Modificare Personal Trainer in baza de date");
+                        System.out.println("Personal Trainerul cu ID-ul " + id + " a fost modificat cu succes in baza de date!");
+                    } else {
+                        System.out.println("Ne pare rau, dar nu exista niciun Personal Trainer cu ID-ul furnizat !");
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("A aparut o eroare la identificarea Personal Trainerului: ");
+                }
+            }
+
+            else if(option == 5){
                 System.out.println("Introduceti ID-ul personal trainerului pe care doriti sa il stergeti din sistem: ");
                 int id = scanner.nextInt();
                 try {
                     PersonalTrainer pt = ptServ.getPTbyID(id);
                     if (pt != null) {
                         ptServ.deletePT(id);
+                        audit.write("Stergere Personal Trainer din baza de date");
                     } else {
                         System.out.println("Ne pare rau, dar nu exista personal trainer client cu ID-ul furnizat !");
                     }
@@ -145,6 +182,7 @@ public class Service {
                     System.out.println("A aparut o eroare la identificarea personal trainerului: ");
                 }
             }
+
             else {
                 System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
             }
@@ -158,8 +196,8 @@ public class Service {
         System.out.println("--->3.Adauga client");
         System.out.println("--->4.Modificare client");
         System.out.println("--->5.Sterge client");
-        System.out.println("--->6.Adauga un abonament clientului");
-        System.out.println("--->7.Afiseaza abonamentele clientului");
+//        System.out.println("--->6.Adauga un abonament clientului");
+//        System.out.println("--->7.Afiseaza abonamentele clientului");
     }
     public void doClientCommands(){
         while(true){
@@ -184,6 +222,7 @@ public class Service {
                 if(clientServ.getClients().size() == 0)
                     System.out.println("Nu exista clienti inregistrati in sistem");
                 else{
+                    audit.write("Afisare Clienti din baza de date");
                     Set<Client> clients = clientServ.getClients();
                     for(Client c : clients)
                         System.out.println(c.toString());
@@ -209,6 +248,7 @@ public class Service {
                 try {
                     clientServ.addClient();
                     audit.write("Inserare Client in baza de date");
+                    System.out.println("Clientul a fost inserat cu succes in baza de date!");
                 }
                 catch (Exception e){
                     System.out.println("A aparut o eroare la introducerea clientului in sistem.");
@@ -222,6 +262,8 @@ public class Service {
                     Client client = clientServ.getClientbyID(id);
                     if (client != null) {
                         clientServ.updateClient(id);
+                        audit.write("Modificare Client in baza de date");
+                        System.out.println("Clientul cu ID-ul " + id + " a fost modificat cu succes in baza de date!");
                     } else {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }
@@ -237,6 +279,7 @@ public class Service {
                     Client client = clientServ.getClientbyID(id);
                     if (client != null) {
                         clientServ.deleteClient(id);
+                        audit.write("Stergere Client din baza de date");
                     } else {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }

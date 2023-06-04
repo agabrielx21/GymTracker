@@ -1,16 +1,15 @@
 package services;
-import classes.Client;
 import classes.PersonalTrainer;
-
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import repositories.person.PersonalTrainerRepository;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class PersonalTrainerService implements PersonalTrainerInterface {
 
     Scanner scanner = new Scanner(System.in);
     private static PersonalTrainerService init;
+
+    private final PersonalTrainerRepository ptRepository = new PersonalTrainerRepository();
     private Set<PersonalTrainer> personalTrainers = new HashSet<PersonalTrainer>();
 
     public PersonalTrainerService() {
@@ -60,35 +59,56 @@ public class PersonalTrainerService implements PersonalTrainerInterface {
         System.out.println("Experienta (in ani) a personal trainerului:");
         int experienta = scanner.nextInt();
         personalTrainer.setExperienta(experienta);
-
-        this.personalTrainers.add(personalTrainer);
+        ptRepository.Insert(personalTrainer);
     }
 
     @Override
     public Set<PersonalTrainer> getPT() {
-        return this.personalTrainers;
+        Set<PersonalTrainer> personalTrainers = ptRepository.SelectAll();
+        return personalTrainers.stream().sorted(Comparator.comparingInt(PersonalTrainer::getId)).collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
     public PersonalTrainer getPTbyID(int ID) throws Exception {
-        for (PersonalTrainer pt : personalTrainers) {
-            if (pt.getId() == ID)
-                return pt;
-        }
-        throw new Exception("Ne pare rau, dar nu exista niciun personal trainer cu ID-ul furnizat !");
+        return ptRepository.Select(ID);
     }
 
     @Override
     public void deletePT(int ID) throws Exception {
-        Boolean deleted = false;
-        for (PersonalTrainer pt : personalTrainers) {
-            if (pt.getId() == ID) {
-                this.personalTrainers.remove(pt);
-                deleted = true;
-                break;
-            }
-        }
-        if (deleted == false)
-            throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+        ptRepository.Delete(ID);
+    }
+
+    @Override
+    public void updatePT(int ID) throws Exception {
+        PersonalTrainer ptToUpdate = getPTbyID(ID);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduceti data angajarii care va inlocui data actuala a personal trainerului ");
+
+        int an;
+        do {
+            System.out.print("Anul: ");
+            an = scanner.nextInt();
+        } while (an < 0);
+
+        int luna;
+        do {
+            System.out.print("Luna: (1-12) ");
+            luna = scanner.nextInt();
+        } while (luna < 1 || luna > 12);
+
+        int ziua;
+        do {
+            System.out.print("Ziua: (1-31) ");
+            ziua = scanner.nextInt();
+        } while (ziua < 1 || ziua > 31);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(an, luna - 1, ziua);
+        java.util.Date utilDate = calendar.getTime();
+
+        java.sql.Date data_angajarii_noua = new java.sql.Date(utilDate.getTime());
+
+        ptRepository.Update(ptToUpdate, data_angajarii_noua);
     }
 }

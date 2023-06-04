@@ -7,7 +7,7 @@ public abstract class STAFF extends Person {
     private Date dataAngajarii;
 
     public Boolean getQualified() {
-        return isQualified;
+        return isQualified != null ? isQualified : Boolean.FALSE;
     }
 
     public void setQualified(Boolean qualified) {
@@ -32,6 +32,11 @@ public abstract class STAFF extends Person {
 
     public STAFF(String nume, String prenume, int age, Boolean sex, Boolean isQualified, Date dataAngajarii) {
         super(nume,prenume,age,sex);
+        this.isQualified = isQualified;
+        this.dataAngajarii = dataAngajarii;
+    }
+    public STAFF(int ID,String nume, String prenume, int age, Boolean sex, Boolean isQualified, Date dataAngajarii) {
+        super(ID,nume,prenume,age,sex);
         this.isQualified = isQualified;
         this.dataAngajarii = dataAngajarii;
     }

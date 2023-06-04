@@ -8,4 +8,6 @@ public interface PersonalTrainerInterface {
     public Set<PersonalTrainer> getPT();
     public PersonalTrainer getPTbyID(int ID) throws Exception;
     public void deletePT(int ID) throws Exception;
+    public void updatePT(int ID) throws Exception;
+
 }

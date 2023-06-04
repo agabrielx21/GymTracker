@@ -22,6 +22,12 @@ public class PersonalTrainer extends STAFF {
         this.experienta = experienta;
     }
 
+    public PersonalTrainer(int ID,String nume, String prenume, int age, Boolean sex, Boolean isQualified, Date dataAngajarii, String specializare, int experienta) {
+        super(ID, nume, prenume, age, sex, isQualified, dataAngajarii);
+        this.specializare = specializare;
+        this.experienta = experienta;
+    }
+
     public String getSpecializare() {
         return specializare;
     }

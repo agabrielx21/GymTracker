@@ -3,17 +3,16 @@ package services;
 import classes.Client;
 import classes.Membership;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
-import repositories.person.PersonRepository;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import repositories.person.ClientRepository;
 public class ClientService implements ClientInterface {
 
     Scanner scanner = new Scanner(System.in);
     private static ClientService init;
 
-    private PersonRepository personRepository = new PersonRepository();
+    private ClientRepository ClientRepository = new ClientRepository();
     private Set<Client> clients = new HashSet<Client>();
 
     public ClientService() {
@@ -66,18 +65,19 @@ public class ClientService implements ClientInterface {
         }
 
         client.setCnp(cnp);
-        personRepository.Insert(client);
+        ClientRepository.Insert(client);
 
     }
 
     @Override
     public Set<Client> getClients() {
-        return this.clients;
+        Set<Client> clients = ClientRepository.SelectAll();
+        return clients.stream().sorted(Comparator.comparingInt(Client::getId)).collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     @Override
     public Client getClientbyID(int ID) throws Exception {
-        return personRepository.Select(ID);
+        return ClientRepository.Select(ID);
     }
 
     @Override
@@ -101,20 +101,12 @@ public class ClientService implements ClientInterface {
             }
             else System.out.println("Optiunile invalida, va rugam sa reintroduceti optiunea dorita.");
         } while (option != 1 && option != 2);
+        ClientRepository.Update(clientToUpdate,ID);
     }
 
     @Override
     public void deleteClient(int ID) throws Exception {
-        Boolean deleted = false;
-        for (Client client : clients) {
-            if (client.getId() == ID) {
-                this.clients.remove(client);
-                deleted = true;
-                break;
-            }
-        }
-        if (deleted == false)
-            throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+        ClientRepository.Delete(ID);
     }
 
     @Override
