@@ -1,0 +1,10 @@
+CREATE TABLE Client (
+                          id INT NOT NULL,
+                          nume VARCHAR2(255),
+                          prenume VARCHAR2(255),
+                          age INT,
+                          sex VARCHAR2(255),
+                          cnp VARCHAR2(255),
+                          fidelity VARCHAR2(255),
+                          PRIMARY KEY (id)
+);

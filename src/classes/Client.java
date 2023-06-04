@@ -53,7 +53,6 @@ public class Client extends Person{
             fidelityString = fidelity ? "   Client fidel" : "   Nu e client fidel";
         }
         return "Client ----> " + '\n' +
-                "   ID: " + getId() + '\n' +
                 "   Nume: " + getNume() + '\n' +
                 "   Prenume: " + getPrenume() + '\n' +
                 "   Varsta: " + getAge() + '\n' +

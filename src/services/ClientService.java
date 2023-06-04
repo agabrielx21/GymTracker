@@ -7,11 +7,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
+import repositories.person.PersonRepository;
 public class ClientService implements ClientInterface {
 
     Scanner scanner = new Scanner(System.in);
     private static ClientService init;
+
+    private PersonRepository personRepository = new PersonRepository();
     private Set<Client> clients = new HashSet<Client>();
 
     public ClientService() {
@@ -64,7 +66,7 @@ public class ClientService implements ClientInterface {
         }
 
         client.setCnp(cnp);
-        this.clients.add(client);
+        personRepository.Insert(client);
 
     }
 
@@ -75,11 +77,7 @@ public class ClientService implements ClientInterface {
 
     @Override
     public Client getClientbyID(int ID) throws Exception {
-        for (Client client : clients) {
-            if (client.getId() == ID)
-                return client;
-        }
-        throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+        return personRepository.Select(ID);
     }
 
     @Override

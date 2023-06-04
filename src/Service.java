@@ -1,3 +1,4 @@
+import audit.*;
 import classes.*;
 import services.*;
 
@@ -6,7 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+
 public class Service {
+    Audit audit = Audit.getInit();
     private static Service init;
     private ClientService clientServ = ClientService.getInit();
     private PersonalTrainerService ptServ = PersonalTrainerService.getInit();
@@ -49,8 +52,10 @@ public class Service {
                 }
 
             }
-            if(option == 0)
+            if(option == 0) {
+                audit.close();
                 System.exit(0);
+            }
             if(option == 1)
                 doClientCommands();
             else if(option == 2)
@@ -185,6 +190,7 @@ public class Service {
                 }
             }
             else if(option == 2){
+                audit.write("Cautare Client dupa ID");
                 System.out.println("Introduceti ID-ul clientului pe care doriti sa il identificati: ");
                 int id = scanner.nextInt();
                 try {
@@ -195,15 +201,18 @@ public class Service {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     System.out.println("A aparut o eroare la identificarea clientului: ");
                 }
             }
             else if(option == 3){
                 try {
                     clientServ.addClient();
+                    audit.write("Inserare Client in baza de date");
                 }
                 catch (Exception e){
                     System.out.println("A aparut o eroare la introducerea clientului in sistem.");
+                    e.printStackTrace();
                 }
             }
             else if(option == 4){
@@ -217,6 +226,7 @@ public class Service {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     System.out.println("A aparut o eroare la identificarea clientului: ");
                 }
             }

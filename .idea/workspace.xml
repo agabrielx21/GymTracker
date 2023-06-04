@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="update on new menu">
+    <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="final version part 1">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/audit/Audit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/audit/audit.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/DB_Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/Tabels" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/TemplateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/gym/GymRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/repositories/person/PersonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GymTracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GymTracker.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ClientInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,19 +43,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "last_opened_file_path": "C:/Users/Alex/Desktop/ojdbc11.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="classes" />
@@ -65,7 +85,9 @@
       <workItem from="1680446048761" duration="24165000" />
       <workItem from="1680536780878" duration="1369000" />
       <workItem from="1680540587372" duration="54000" />
-      <workItem from="1680721804612" duration="6592000" />
+      <workItem from="1680721804612" duration="8383000" />
+      <workItem from="1681121747365" duration="384000" />
+      <workItem from="1685723215038" duration="19407000" />
     </task>
     <task id="LOCAL-00001" summary="Initialization">
       <created>1680385136299</created>
@@ -116,7 +138,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680476721740</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add Membership List to a Client Object">
+      <created>1680730197470</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680730197470</updated>
+    </task>
+    <task id="LOCAL-00009" summary="final version part 1">
+      <created>1680731197706</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680731197706</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +165,8 @@
     <MESSAGE value="Finished Interface and Service for the class PT, &#10;Added a new menu to gather all the commands into it,&#10;Added exit option into a menu" />
     <MESSAGE value="Finished Interface and Service for the class Exercise &amp; Meal" />
     <MESSAGE value="update on new menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="update on new menu" />
+    <MESSAGE value="Add Membership List to a Client Object" />
+    <MESSAGE value="final version part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version part 1" />
   </component>
 </project>
