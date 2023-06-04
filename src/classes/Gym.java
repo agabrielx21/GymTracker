@@ -5,14 +5,23 @@ import java.util.Vector;
 public class Gym {
     private Vector<PersonalTrainer> trainers;
     private Vector<Receptioner> receptioners;
+
+    private String nume;
     private String adresa;
     private int numarClienti;
 
     public Gym(){
     }
-    public Gym(Vector<PersonalTrainer> trainers, Vector<Receptioner> receptioners, String adresa, int numarClienti) {
+    public Gym(String nume, Vector<PersonalTrainer> trainers, Vector<Receptioner> receptioners, String adresa, int numarClienti) {
+        this.nume = nume;
         this.trainers = trainers;
         this.receptioners = receptioners;
+        this.adresa = adresa;
+        this.numarClienti = numarClienti;
+    }
+
+    public Gym(String nume, String adresa, int numarClienti){
+        this.nume = nume;
         this.adresa = adresa;
         this.numarClienti = numarClienti;
     }
@@ -41,8 +50,19 @@ public class Gym {
         this.numarClienti = numarClienti;
     }
 
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
     @Override
     public String toString() {
-        return super.toString();
+        return "Gym ----> " + '\n' +
+                "   Nume: " + getNume() + '\n' +
+                "   Adresa: " + getAdresa() + '\n' +
+                "   Numar Clienti: " + getNumarClienti() + '\n';
     }
 }

@@ -17,7 +17,6 @@ public class ClientService implements ClientInterface {
 
     public ClientService() {
     }
-
     public static ClientService getInit() {
         if (init == null)
             init = new ClientService();

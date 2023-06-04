@@ -21,3 +21,24 @@ CREATE TABLE PersonalTrainer (
                           experienta INT,
                           PRIMARY KEY (id)
 );
+
+CREATE TABLE Gym (
+                        id INT NOT NULL,
+                        adresa VARCHAR2(255),
+                        numarClienti INT,
+                        PRIMARY KEY (id)
+);
+
+CREATE TABLE PTtoGYM (
+                        idPersonalTrainer INT NOT NULL,
+                        idGym INT NOT NULL
+);
+
+CREATE TABLE Membership (
+                        id INT NOT NULL,
+                        startingDate DATE,
+                        expirationDate DATE,
+                        idClient INT NOT NULL,
+                        PRIMARY KEY(id),
+                        FOREIGN KEY (idClient) REFERENCES Client(id)
+);

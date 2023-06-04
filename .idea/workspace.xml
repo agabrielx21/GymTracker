@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75b78d5f-6e37-415b-8682-82e2837728b9" name="Changes" comment="part 2">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repositories/person/PersonalTrainerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/GymInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/GymService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/audit/audit.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/audit/audit.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/PersonalTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/PersonalTrainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/STAFF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/STAFF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Gym.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Gym.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/Tabels" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Tabels" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repositories/person/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/person/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositories/gym/GymRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositories/gym/GymRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PersonalTrainerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PersonalTrainerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PersonalTrainerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PersonalTrainerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +84,7 @@
       <workItem from="1680721804612" duration="8383000" />
       <workItem from="1681121747365" duration="384000" />
       <workItem from="1685723215038" duration="19407000" />
-      <workItem from="1685866580336" duration="9423000" />
+      <workItem from="1685866580336" duration="15560000" />
     </task>
     <task id="LOCAL-00001" summary="Initialization">
       <created>1680385136299</created>
@@ -162,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685866750474</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="part 2">
+      <created>1685908581294</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685908581295</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,13 +1,10 @@
 import audit.*;
 import classes.*;
-import repositories.person.PersonalTrainerRepository;
 import services.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
 
 
 public class Service {
@@ -18,6 +15,7 @@ public class Service {
     private ExerciseService exServ = ExerciseService.getInit();
     private MealService mealServ = MealService.getInit();
     private MembershipService memberServ = MembershipService.getInit();
+    private GymService gymServ = GymService.getInit();
     private Scanner scanner = new Scanner(System.in);
     private Service(){
 
@@ -33,9 +31,8 @@ public class Service {
         System.out.println("--->0.Inchidere aplicatie");
         System.out.println("--->1.Meniu manipulare clienti");
         System.out.println("--->2.Meniu manipulare personal traineri");
-        System.out.println("--->3.Meniu manipulare exercitii ");
-        System.out.println("--->4.Meniu manipulare meniuri ");
-        System.out.println("--->5.Meniu manipulare memberships ");
+        System.out.println("--->3.Meniu manipulare sali de fitness");
+        System.out.println("--->4.Meniu manipulare memberships ");
     }
 
     public void doGeneralCommands(){
@@ -45,12 +42,12 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 0 && option <= 5)
+                    if(option >= 0 && option <= 4)
                         break;
-                    else System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
                 }
 
             }
@@ -68,17 +65,14 @@ public class Service {
                 doPTCommands();
             }
             else if(option == 3) {
-                audit.write("---> Interogare meniu Exercitii");
-                doExCommands();
+                audit.write("---> Interogare meniu Sali");
+                doGymCommands();
             }
             else if(option == 4) {
-                audit.write("---> Interogare meniu Meniuri");
-                doMealCommands();
-            }
-            else if(option == 5) {
                 audit.write("---> Interogare meniu Abonamente");
                 doMembershipCommands();
             }
+
             else {
                 System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
             }
@@ -443,6 +437,75 @@ public class Service {
             }
         }
     }
+
+    public void showGymCommands(){
+        System.out.println("--->0.Exit");
+        System.out.println("--->1.Afiseaza salile de fitness");
+        System.out.println("--->2.Adauga o sala de fitness");
+        System.out.println("--->3.Modifica o sala de fitness");
+        System.out.println("--->4.Sterge o sala de fitness");
+    }
+
+    public void doGymCommands() {
+        while (true) {
+            showGymCommands();
+            int option = -1;
+            while (true) {
+                try {
+                    option = scanner.nextInt();
+                    if (option >= 0 && option <= 4)
+                        break;
+                    else
+                        System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                } catch (Exception exception) {
+                    System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                }
+
+            }
+            if (option == 0) {
+                doGeneralCommands();
+            } else if (option == 1) {
+
+                if (gymServ.getGyms().size() == 0)
+                    System.out.println("Nu exista sali de fitness inregistrate in sistem");
+                else {
+                    Set<Gym> gyms = gymServ.getGyms();
+                    for (Gym gym : gyms)
+                        System.out.println(gym.toString());
+                    audit.write("Afisare Sali de fitness");
+                }
+            } else if (option == 2) {
+                try {
+                    gymServ.addGym();
+                    audit.write("Inserare sala de fitness in baza de date");
+                } catch (Exception e) {
+                    System.out.println("A aparut o eroare la introducerea salii de fitness in sistem.");
+                }
+            } else if (option == 3) {
+                System.out.println("Introduceti ID-ul salii de fitness pe care doriti sa o modificati din sistem: ");
+                int id = scanner.nextInt();
+                try {
+                    gymServ.updateGym(id);
+                    audit.write("Modificare sala de fitness in baza de date");
+                } catch (Exception e) {
+                    System.out.println("A aparut o eroare la identificarea salii de fitness in sistem ");
+                }
+            } else if (option == 4) {
+                System.out.println("Introduceti ID-ul salii de fitness pe care doriti sa o stergeti din sistem: ");
+                int id = scanner.nextInt();
+                try {
+                    gymServ.deleteGym(id);
+                    audit.write("Stergere sala de fitness din baza de date");
+                } catch (Exception e) {
+                    System.out.println("A aparut o eroare la identificarea salii de fitness");
+                }
+            } else {
+                System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
+            }
+        }
+    }
+
+
     public void showMembershipCommands(){
         System.out.println("--->0.Exit");
         System.out.println("--->1.Afiseaza membershipurile");
