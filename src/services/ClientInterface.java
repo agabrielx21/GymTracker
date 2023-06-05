@@ -14,5 +14,4 @@ public interface ClientInterface {
     public void updateClient(int ID) throws Exception;
     public void deleteClient(int ID) throws Exception;
     public List<Membership> getMembershipToList(int ID) throws Exception;
-//    public void addMembershipToList(int ID, Membership membership) throws Exception;
 }

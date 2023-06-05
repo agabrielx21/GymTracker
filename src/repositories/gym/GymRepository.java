@@ -1,11 +1,6 @@
 package repositories.gym;
-
-import classes.Client;
-import classes.Receptioner;
-import database.DB_Connection;
 import classes.Gym;
 import repositories.TemplateRepository;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

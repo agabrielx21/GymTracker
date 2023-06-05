@@ -1,11 +1,7 @@
 package repositories.person;
 
-import classes.Client;
 import classes.PersonalTrainer;
-import database.DB_Connection;
-import classes.Client;
 import repositories.TemplateRepository;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

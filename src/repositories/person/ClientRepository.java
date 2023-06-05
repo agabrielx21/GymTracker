@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.Set;
 import java.util.HashSet;
 
-
 public class ClientRepository extends TemplateRepository {
 
     private final String selectAll = "SELECT * FROM CLIENT";

@@ -1,6 +1,5 @@
 package services;
 
-import classes.Client;
 import classes.Gym;
 import repositories.gym.GymRepository;
 

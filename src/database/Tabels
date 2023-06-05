@@ -24,6 +24,7 @@ CREATE TABLE PersonalTrainer (
 
 CREATE TABLE Gym (
                         id INT NOT NULL,
+                        nume VARCHAR2(255),
                         adresa VARCHAR2(255),
                         numarClienti INT,
                         PRIMARY KEY (id)
@@ -39,6 +40,8 @@ CREATE TABLE Membership (
                         startingDate DATE,
                         expirationDate DATE,
                         idClient INT NOT NULL,
+                        idSala INT NOT NULL,
                         PRIMARY KEY(id),
-                        FOREIGN KEY (idClient) REFERENCES Client(id)
+                        FOREIGN KEY (idClient) REFERENCES Client(id),
+                        FOREIGN KEY (idSala) REFERENCES Gym(id)
 );

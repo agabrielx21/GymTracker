@@ -1,8 +1,6 @@
 package services;
 
-import classes.Exercise;
 import classes.Meal;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

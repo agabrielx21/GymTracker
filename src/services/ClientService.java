@@ -117,17 +117,5 @@ public class ClientService implements ClientInterface {
         throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
     }
 
-//    @Override
-//    public void addMembershipToList(int ID, Membership membership) throws Exception {
-//        for (Client client : clients) {
-//            if (client.getId() == ID){
-//                List<Membership> m = client.getMembershipList();
-//                m.add(membership);
-//                client.setMembershipList(m);
-//            }
-//        }
-//        throw new Exception("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
-//    }
-
 
 }

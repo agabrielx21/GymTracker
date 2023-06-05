@@ -1,11 +1,9 @@
 import audit.*;
 import classes.*;
 import services.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
 
 public class Service {
     Audit audit = Audit.getInit();
@@ -18,7 +16,6 @@ public class Service {
     private GymService gymServ = GymService.getInit();
     private Scanner scanner = new Scanner(System.in);
     private Service(){
-
     }
     public static Service getInit(){
         if(init == null){
@@ -32,7 +29,7 @@ public class Service {
         System.out.println("--->1.Meniu manipulare clienti");
         System.out.println("--->2.Meniu manipulare personal traineri");
         System.out.println("--->3.Meniu manipulare sali de fitness");
-        System.out.println("--->4.Meniu manipulare memberships ");
+        System.out.println("--->4.Meniu manipulare abonamente ");
     }
 
     public void doGeneralCommands(){
@@ -190,8 +187,6 @@ public class Service {
         System.out.println("--->3.Adauga client");
         System.out.println("--->4.Modificare client");
         System.out.println("--->5.Sterge client");
-//        System.out.println("--->6.Adauga un abonament clientului");
-//        System.out.println("--->7.Afiseaza abonamentele clientului");
     }
     public void doClientCommands(){
         while(true){
@@ -200,12 +195,12 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 0 && option <= 7)
+                    if(option >= 0 && option <= 5)
                         break;
-                    else System.out.println("Introduceti un numar de la 0 la 7 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 0 la 7 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 5 pentru a utiliza o instructiune valida!");
                 }
 
             }
@@ -277,61 +272,6 @@ public class Service {
                     } else {
                         System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
                     }
-                } catch (Exception e) {
-                    System.out.println("A aparut o eroare la identificarea clientului: ");
-                }
-            }
-            else if(option == 6){
-                System.out.println("Introduceti ID-ul clientului : ");
-                int id = scanner.nextInt();
-                try {
-                    Client client = clientServ.getClientbyID(id);
-                    if (client != null) {
-                        List<Membership> membershipList = client.getMembershipList();
-                        try {
-                            memberServ.addMembership();
-                            List<Membership> memberships = memberServ.getMemberships();
-                            if (!memberships.isEmpty()) {
-                                Membership membershipToAdd = memberships.get(memberships.size() - 1);
-                                if (membershipList != null) {
-                                    membershipList.add(membershipToAdd);
-                                    client.setMembershipList(membershipList);
-                                } else {
-                                    List<Membership> newMembershipList = new ArrayList<>();
-                                    newMembershipList.add(membershipToAdd);
-                                    client.setMembershipList(newMembershipList);
-                                }
-
-                            } else {
-                                System.out.println("A aparut o eroare la introducerea membershipului in sistem.");
-                            }
-
-                        }
-                        catch (Exception e){
-                            System.out.println("A aparut o eroare la introducerea membershipului in sistem.");
-                            e.printStackTrace();
-
-                        }
-                    } else {
-                        System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
-                    }
-                } catch (Exception e) {
-                    System.out.println("A aparut o eroare la identificarea clientului. ");
-                }
-
-            }
-            else if(option == 7){
-                System.out.println("Introduceti ID-ul clientului : ");
-                int id = scanner.nextInt();
-                try {
-                        List<Membership> membershipList = clientServ.getMembershipToList(id);
-                        if(membershipList != null){
-                            for(Membership membership : membershipList){
-                                System.out.println(membership.toString());
-
-                            }
-                        }
-                        else System.out.println("Acest client nu are niciun membership activ !");
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la identificarea clientului: ");
                 }
@@ -477,7 +417,7 @@ public class Service {
             } else if (option == 2) {
                 try {
                     gymServ.addGym();
-                    audit.write("Inserare sala de fitness in baza de date");
+                    audit.write("Inserare Sala de fitness in baza de date");
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la introducerea salii de fitness in sistem.");
                 }
@@ -486,7 +426,7 @@ public class Service {
                 int id = scanner.nextInt();
                 try {
                     gymServ.updateGym(id);
-                    audit.write("Modificare sala de fitness in baza de date");
+                    audit.write("Modificare Sala de fitness in baza de date");
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la identificarea salii de fitness in sistem ");
                 }
@@ -495,7 +435,7 @@ public class Service {
                 int id = scanner.nextInt();
                 try {
                     gymServ.deleteGym(id);
-                    audit.write("Stergere sala de fitness din baza de date");
+                    audit.write("Stergere Sala de fitness din baza de date");
                 } catch (Exception e) {
                     System.out.println("A aparut o eroare la identificarea salii de fitness");
                 }
@@ -508,10 +448,12 @@ public class Service {
 
     public void showMembershipCommands(){
         System.out.println("--->0.Exit");
-        System.out.println("--->1.Afiseaza membershipurile");
-        System.out.println("--->2.Adauga un membership");
-        System.out.println("--->3.Modifica un membership");
-        System.out.println("--->4.Sterge un membership");
+        System.out.println("--->1.Afiseaza abonamente");
+        System.out.println("--->2.Cautare abonament dupa ID");
+        System.out.println("--->3.Adauga un abonament");
+        System.out.println("--->4.Modifica un abonament");
+        System.out.println("--->5.Sterge un abonament");
+        System.out.println("--->6.Afiseaza abonamentele clientului cu ID-ul introdus");
     }
     public void doMembershipCommands(){
         while(true){
@@ -520,12 +462,12 @@ public class Service {
             while(true){
                 try{
                     option = scanner.nextInt();
-                    if(option >= 0 && option <= 4)
+                    if(option >= 0 && option <= 6)
                         break;
-                    else System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                    else System.out.println("Introduceti un numar de la 0 la 6 pentru a utiliza o instructiune valida!");
                 }
                 catch (Exception exception){
-                    System.out.println("Introduceti un numar de la 0 la 4 pentru a utiliza o instructiune valida!");
+                    System.out.println("Introduceti un numar de la 0 la 6 pentru a utiliza o instructiune valida!");
                 }
 
             }
@@ -534,54 +476,88 @@ public class Service {
             }
 
             else if(option == 1){
-
                 if(memberServ.getMemberships().size() == 0)
-                    System.out.println("Nu exista membershipuri in sistem");
+                    System.out.println("Nu exista abonamente in sistem");
                 else{
-                    List<Membership> memberships = memberServ.getMemberships();
+                    Set<Membership> memberships = memberServ.getMemberships();
                     for(Membership membership : memberships)
                         System.out.println(membership.toString());
+                    audit.write("Afisare Abonamente");
                 }
             }
 
             else if(option == 2){
+                audit.write("Cautare Abonament dupa ID");
+                System.out.println("Introduceti ID-ul abonamentului pe care doriti sa il identificati: ");
+                int id = scanner.nextInt();
                 try {
-                    memberServ.addMembership();
-                }
-                catch (Exception e){
-                    System.out.println("A aparut o eroare la introducerea membershipului in sistem.");
+                    Membership m = memberServ.getMembershipByID(id);
+                    if (m != null) {
+                        System.out.println(m.toString());
+                    } else {
+                        System.out.println("Ne pare rau, dar nu exista niciun client cu ID-ul furnizat !");
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("A aparut o eroare la identificarea clientului: ");
                 }
             }
 
             else if(option == 3){
-                System.out.println("Introduceti ID-ul membershipului pe care doriti sa il modificati din sistem: ");
+                try {
+                    memberServ.addMembership();
+                    audit.write("Inserare Abonament in baza de date");
+                }
+                catch (Exception e){
+                    System.out.println("A aparut o eroare la introducerea abonamentului in sistem.");
+                }
+            }
+
+            else if(option == 4){
+                System.out.println("Introduceti ID-ul abonamentului pe care doriti sa il modificati din sistem: ");
                 int id = scanner.nextInt();
                 try {
                     Membership membership = memberServ.getMembershipByID(id);
                     if (membership != null) {
                         memberServ.updateMembership(id);
+                        audit.write("Modificare Abonament in baza de date");
                     } else {
-                        System.out.println("Ne pare rau, dar nu exista niciun membership cu ID-ul furnizat !");
+                        System.out.println("Ne pare rau, dar nu exista niciun abonament cu ID-ul furnizat !");
                     }
                 } catch (Exception e) {
-                    System.out.println("A aparut o eroare la identificarea membershipului: ");
+                    System.out.println("A aparut o eroare la identificarea abonamentului: ");
                 }
             }
 
-            else if(option == 4){
-                System.out.println("Introduceti ID-ul membershipului pe care doriti sa il stergeti din sistem: ");
+            else if(option == 5){
+                audit.write("Stergere Abonament din baza de date");
+                System.out.println("Introduceti ID-ul abonamentului pe care doriti sa il stergeti din sistem: ");
                 int id = scanner.nextInt();
                 try {
                     Membership membership = memberServ.getMembershipByID(id);
                     if (membership != null) {
                         memberServ.deleteMembership(id);
                     } else {
-                        System.out.println("Ne pare rau, dar nu exista niciun membership cu ID-ul furnizat !");
+                        System.out.println("Ne pare rau, dar nu exista niciun abonament cu ID-ul furnizat !");
                     }
                 } catch (Exception e) {
-                    System.out.println("A aparut o eroare la identificarea membershipului: ");
+                    System.out.println("A aparut o eroare la identificarea abonamentului: ");
                 }
             }
+
+            else if(option == 6){
+                System.out.println("Introduceti ID-ul clientului caruia doriti sa ii afisati abonamentele ");
+                int id = scanner.nextInt();
+                if(memberServ.getMembershipsForSpecificClient(id).size() == 0)
+                    System.out.println("Nu exista abonamente in sistem");
+                else{
+                    Set<Membership> memberships = memberServ.getMembershipsForSpecificClient(id);
+                    for(Membership membership : memberships)
+                        System.out.println(membership.toString());
+                    audit.write("Afisarea Abonamentelor unui client");
+                }
+            }
+
             else {
                 System.out.println("Optiunea " + option + ", nu a fost inca implementata!");
             }

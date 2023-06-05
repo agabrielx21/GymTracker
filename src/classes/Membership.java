@@ -9,6 +9,8 @@ public class Membership {
     private EatingPlan eatingPlan;
     private Date startingDate;
     private Date expirationDate;
+    private int idClient;
+    private int idSala;
     private int price;
     public Membership() {
         this.id = nextId;
@@ -22,6 +24,15 @@ public class Membership {
         this.price = price;
         this.id = nextId;
         nextId++;
+    }
+
+    public Membership(int ID, Date startingDate, Date expirationDate, int pret, int idClient, int idSala){
+        this.id = ID;
+        this.startingDate = startingDate;
+        this.expirationDate = expirationDate;
+        this.price = pret;
+        this.idClient = idClient;
+        this.idSala = idSala;
     }
 
     public WorkoutPlan getWorkoutPlan() {
@@ -72,28 +83,37 @@ public class Membership {
         this.price = price;
     }
 
+    public int getIdSala() {
+        return idSala;
+    }
+
+    public void setIdSala(int idSala) {
+        this.idSala = idSala;
+    }
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
+    }
+
     @Override
     public String toString() {
-        String workoutPlanString;
-        String eatingPlanString;
-        try {
-            workoutPlanString = workoutPlan.toString();
-        } catch (NullPointerException e) {
-            workoutPlanString = "N/A";
-        }
 
         try {
-            eatingPlanString = eatingPlan.toString();
-        } catch (NullPointerException e) {
-            eatingPlanString = "N/A";
+            return "Membership ----> " + '\n' +
+                    "   ID : " + id + '\n' +
+                    "   Data inceput : " + startingDate + '\n' +
+                    "   Data expirare : " + expirationDate + '\n' +
+                    "   Pret : " + price + '\n' +
+                    "   IDclient : " + idClient + '\n' +
+                    "   IDsala : " + idSala;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return "Membership ----> " + '\n' +
-                "   ID : " + id + '\n' +
-                "   Data inceput : " + startingDate + '\n' +
-                "   Data expirare : " + expirationDate + '\n' +
-                "   Pret : " + price + '\n' +
-                "   Plan alimentar: " + workoutPlanString + '\n' +
-                "   Plan antrenament: " + eatingPlanString;
 
     }
 }

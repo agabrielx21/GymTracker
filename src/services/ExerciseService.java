@@ -1,8 +1,6 @@
 package services;
 
-import classes.Client;
 import classes.Exercise;
-
 import java.util.*;
 
 public class ExerciseService implements ExerciseInterface{

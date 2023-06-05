@@ -1,7 +1,6 @@
 package classes;
 
 import java.util.Date;
-
 public class PersonalTrainer extends STAFF {
 
     private String specializare;
